@@ -2,8 +2,28 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container d-md-none">
+    <div class="row">
+        <div class="col-12 me-auto text-center">
+@*            <img src="@Model.TeamImgUrl" alt="@Model.TeamName" class="rounded" style="max-width: 300px;" />
+*@        </div>
+        <div class="col-12 my-3">
+            <hr />
+        </div>
+    </div>
+</div>
 
-Welcome to your new app.
+<div class="container">
+    <img src="/images/banner_2019.svg" alt="PlainsTsunami" class="d-block w-100 m-4" />
+    <div class="row pt-md-3">
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+            <div class="col-12 col-md-12 order-1 order-md-1 mx-auto">
+                Latest Information here...
+            </div>
+    </div>
+    <div class="row my-5">
+        <div style="text-align: center">
+            <h5>Click <a asp-action="Results" asp-area="" asp-controller="Home" asp-route-meetYear="@(DateTime.Now.Year-1)" title="Previous Results">HERE</a> to view past season results.</h5>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,28 @@
-﻿@inherits LayoutComponentBase
+﻿@using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+@inherits LayoutComponentBase
+@inject IWebAssemblyHostEnvironment HostEnvironment
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<NavMenu />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+<div class="container-fluid body-content mt-4">
+    @Body
 </div>
+<footer class="footer bg-dark">
+    <div class="container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-4 d-none d-md-block">
+                Powered by @System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription
+                <environment names="Development"><span class="font-italic">Running in @HostEnvironment.Environment mode </span></environment>
+            </div>
+            <div class="col-12 d-block d-md-none text-center">&copy; @year - PlainstSunami</div>
+            <div class="col-4 d-none d-md-block text-center">&copy; @year - PlainstSunami Swim League</div>
+            <div class="col-4 d-none d-md-block text-end">
+                <a class="footerlink" href="mailto:wyatt.conrad@gmail.com">Email Administrator</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@code {
+    private int year = DateTime.UtcNow.Year;
+}
