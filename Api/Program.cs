@@ -10,8 +10,7 @@ namespace ApiIsolated
     {
         public static void Main()
         {
-            //var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PtSLManager_db-2023-7-13;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings:DefaultConnection");
+            var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
             var host = new HostBuilder()
                 .ConfigureFunctionsWorkerDefaults()
                 .ConfigureServices(services =>
