@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Api.Classes
+namespace BlazorApp.Shared
 {
     public class Team
     {

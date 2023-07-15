@@ -6,7 +6,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (teams == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -15,20 +15,20 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Team Name</th>
+                <th>Team Image</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var team in teams)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@team.Name</td>
+                    <td>@team.Code</td>
+                    <td>@team.TeamName</td>
+                    <td>@team.TeamImgUrl</td>
                 </tr>
             }
         </tbody>
@@ -36,13 +36,13 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts = new WeatherForecast[]{};
+    private List<Team> teams = new List<Team>();
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("/api/WeatherForecast") ?? new WeatherForecast[]{};
+            teams = await Http.GetFromJsonAsync<List<Team>>("/api/GetAllTeams") ?? new List<Team>();
         }
         catch (Exception ex)
         {

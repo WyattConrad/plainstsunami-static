@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Api.Classes;
+using BlazorApp.Shared;
 
 namespace Api
 {
