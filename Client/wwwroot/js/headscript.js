@@ -46,8 +46,10 @@
         activeThemeIcon.classList.remove('fa-circle-half-stroke', 'fa-sun', 'fa-moon')
         checkOfActiveBtn.classList.remove('d-none')
         if (theme == "light") {
+            console.log("theme is light");
             activeThemeIcon.classList.add('fa-sun')
         } else if (theme == "dark") {
+            console.log("theme is dark");
             activeThemeIcon.classList.add('fa-moon')
         }
         else {
